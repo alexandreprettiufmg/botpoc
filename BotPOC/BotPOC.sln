@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotPOC", "BotPOC\BotPOC.csproj", "{759610B8-324E-47EB-B180-B112C1A95539}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{759610B8-324E-47EB-B180-B112C1A95539}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{759610B8-324E-47EB-B180-B112C1A95539}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{759610B8-324E-47EB-B180-B112C1A95539}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{759610B8-324E-47EB-B180-B112C1A95539}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48879F30-8FEF-4CB7-B370-1A3F71C51B53}
+	EndGlobalSection
+EndGlobal
