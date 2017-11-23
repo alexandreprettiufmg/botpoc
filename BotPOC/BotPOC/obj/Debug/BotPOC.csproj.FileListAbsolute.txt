@@ -1,0 +1,2 @@
+C:\Users\Pretti\Desktop\botpoc\BotPOC\BotPOC\obj\Debug\BotPOC.csprojResolveAssemblyReference.cache
+C:\Users\Pretti\Desktop\botpoc\BotPOC\BotPOC\obj\Debug\BotPOC.csproj.CoreCompileInputs.cache
