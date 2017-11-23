@@ -16,34 +16,64 @@ public class DefaultMessageReceiver : MessageReceiverBase
     {
 
 		private const string GenericErrorCommand = "#ErroGenerico";
-		public DefaultMessageReceiver(
+        private readonly INavigationExtension _navigation;
+
+        public DefaultMessageReceiver(
 			IMessagingHubSender sender, 
 			MySettings settings, 
 			IContextManager context, 
 			IContactService contactService,
 			IMpaService mpaService,
             IGenericErrorService genericErrorService,
-			ILogger logger)
-            : base(sender, settings, context, contactService, mpaService, genericErrorService, logger)
+			ILogger logger,
+            INavigationExtension navigation)
+            : base(sender, settings, context, contactService, mpaService, genericErrorService, logger,navigation)
         {
-
+            _navigation = navigation;
         }
 
         protected override async Task ReceiveMessageAsync(Message message, CancellationToken cancellationToken)
         {
-             var navResult = await _mpaService.SendToMPA(message, cancellationToken);
-            
-            if (navResult.NavigationState == NavigationState.Error)
+            if (message.Metadata != null && message.Metadata.ContainsKey("messenger.ref"))
+                await MakeNavigationBasedOnMetadata(message, cancellationToken);
+
+
+            else
             {
-                _logger.Error($"Error on sending message to MPA. User from: {message.From} user message: {(message.Content as PlainText).Text}");
+                var navResult = await _mpaService.SendToMPA(message, cancellationToken);
 
-                var result = await _mpaService.SendToMPA(GenericErrorCommand, message.From, cancellationToken);
-
-                if (result.NavigationState == NavigationState.Error)
+                if (navResult.NavigationState == NavigationState.Error)
                 {
-                    throw (new Exception());
-                }
+                    _logger.Error($"Error on sending message to MPA. User from: {message.From} user message: {(message.Content as PlainText).Text}");
+
+                    var result = await _mpaService.SendToMPA(GenericErrorCommand, message.From, cancellationToken);
+
+                    if (result.NavigationState == NavigationState.Error)
+                    {
+                        throw (new Exception());
+                    }
+                } 
             }
+        }
+
+        private async Task MakeNavigationBasedOnMetadata(Message message, CancellationToken cancellationToken)
+        {
+
+            switch (message.Metadata["messenger.ref"])
+            {
+                case "MenuInicial":
+                    StartQRCodeNavigation("MenuInicial", message, cancellationToken);
+                    break;
+                default:
+                    await _navigation.GetAndExecuteNavigationAsync(message, cancellationToken);
+                    break;
+            }
+
+        }
+
+        private async void StartQRCodeNavigation(string text, Message message, CancellationToken cancellationToken)
+        {
+            await _navigation.GetAndExecuteNavigationAsync(message.From, text, cancellationToken);
         }
 
     }

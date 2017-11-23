@@ -141,7 +141,7 @@ namespace BotPOC.Services
             }
             catch (Exception e)
             {
-                LogException(e);
+              //  LogException(e);
             }
 
             return mimetype;

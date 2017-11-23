@@ -22,7 +22,8 @@ namespace BotPOC.Receivers
         protected readonly IContextManager _context;
 		protected readonly IContactService _contactService;
         protected readonly ILogger _logger;
-		private readonly MySettings _settings;
+        private readonly INavigationExtension _navigation;
+        private readonly MySettings _settings;
         protected readonly IMpaService _mpaService;
 		protected readonly IGenericErrorService _genericErrorService;
 
@@ -35,14 +36,15 @@ namespace BotPOC.Receivers
 			IContactService contactService,
 			IMpaService mpaService,
             IGenericErrorService genericErrorService,
-			ILogger logger)
+			ILogger logger,
+            INavigationExtension navigation)
 			: base()
         {
             _sender = sender;
             _context = context;
 			_contactService = contactService;
             _logger = logger;
-
+            _navigation = navigation;
             _receiverName = GetType().Name;
 			_settings = settings;
             _mpaService = mpaService;

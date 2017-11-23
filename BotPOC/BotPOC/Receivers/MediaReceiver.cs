@@ -16,6 +16,7 @@ namespace BotPOC.Receivers
     {
 		private const string GenericErrorCommand = "#ErroGenerico";
         private readonly IMediaService _mediaService;
+        private readonly INavigationExtension _navigation;
 
         public MediaReceiver(
              IMessagingHubSender sender,
@@ -25,10 +26,12 @@ namespace BotPOC.Receivers
              IMpaService mpaService,
              IGenericErrorService genericErrorService,
              ILogger logger,
-             IMediaService mediaService)
-            : base(sender, settings, context, contactService, mpaService, genericErrorService, logger)
+             IMediaService mediaService,
+             INavigationExtension navigation)
+            : base(sender, settings, context, contactService, mpaService, genericErrorService, logger, navigation)
         {
             _mediaService = mediaService;
+            _navigation = navigation;
         }
 
         protected override async Task ReceiveMessageAsync(Message message, CancellationToken cancellationToken)
