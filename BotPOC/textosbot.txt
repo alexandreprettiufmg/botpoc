@@ -1,0 +1,43 @@
+Engenharia de Software é uma das disciplinas de Ciência da Computação
+O foco da engenharia é atendimento às necessidades humanas. Em engenharia de software usamos do software e da informática para atender os problemas do dia-a-dia.
+Para essas soluções precisamos nos atentar para o processo do produto.
+
+Deslize abaixo para aprender um pouco mais das matérias:
+
+Produto
+Problemas e Produção
+
+Engenharia de software somos reforçados de que não adianta termos todo poder computacional, se não temos pessoas capacitadas e qualificadas para desempenhar o papel.
+Porém isso não é garantia de sucesso. Precisamos também garantir a qualidade do processo do negócio.
+
+(botão Ciclos de Vida)(botão menu)
+
+Dizemos que no processo de produção, temos ciclos de vida. Começamos a partir da necessidade criada e vislumbrada por alguém, é desenvolvido para o cliente, tem sua operação realizada para resolver o problema e pode morrer quando não houver necessidade mais.
+(imagem pag13 livro)
+
+(botão Projetos)(botão Menu)
+
+O desenvolvimento do software é feito em um projeto. Um projeto tem datas definidas de início, fim, entregas e um time que tem um líder de projeto.
+Se há um processo bem definido, o projeto pode ser avaliado em cada etapa e cada integrante do time sabe suas tarefas e pode ser avaliado por elas.
+Os estados do projeto durante o desenvolvimento são determinados por marcos.
+
+(botão requisitos) (botão menu)
+
+O valor de um produto vem de suas características, que são subdividas em funcionais, que representam os comportamentos que um programa ou sistema deve apresentar diante de certas ações de seus usuários, e não funcionais, que quantificam determinados aspectos do comportamento.
+
+Os requisitos são as características que definem os critérios de aceitação de um produto. Temos três tipos de requisitos:
+
+Explicitos, que são descritos em um especificação.
+Normativos, que são leis e padrões que o produto deve obedecer.
+E por fim, Implícitos, que são cobrados mas não documentados, por serem expectativas geradas.
+A intenção é minimizar esses requisitos implícitos.
+
+----Menu inicial----
+Deslize abaixo para aprender um pouco mais das matérias:
+
+Qualidade de Software
+Praxis em construção
+problemas de escala
+melhoria de processos
+capacitação(modelo cmm)
+
